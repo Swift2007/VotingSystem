@@ -75,7 +75,7 @@ A website where students vote for student council candidates.
 |---|---|
 | Frontend | HTML5, CSS3 + Tailwind CSS, JavaScript |
 | Backend | Python — **FastAPI** (recommended, see Section 9) |
-| Database | PostgreSQL |
+| Database | Sqlite |
 | Blockchain | Start with a simple custom hash-chain in Python (prototype). Upgrade path: a real network or smart contract later |
 | API | REST over HTTPS |
 | Version control | Git + GitHub |
