@@ -1,4 +1,4 @@
-import { refreshIcons } from "./icons.js";
+import { refreshIcons } from "../icons.js";
 
 export function dashboardPreview() {
   const html = `
