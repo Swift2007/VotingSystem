@@ -90,10 +90,32 @@ ol {
 }
 
 .brand-mark svg,
-.brand-mark .lucide {
-  width: 12px;
-  height: 12px;
+.brand-mark .lucide,
+.brand-mark .brand-logo {
+  width: 14px;
+  height: 14px;
   color: var(--sky-deep);
+}
+
+.brand-mark .brand-logo {
+  object-fit: contain;
+}
+
+/* Larger, more prominent brand in the navbar (footer keeps the compact size) */
+.site-header .brand {
+  gap: 12px;
+  font-size: 18px;
+}
+
+.site-header .brand-mark {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+}
+
+.site-header .brand-mark .brand-logo {
+  width: 30px;
+  height: 30px;
 }
 
 .button .lucide {
