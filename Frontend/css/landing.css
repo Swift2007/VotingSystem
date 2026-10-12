@@ -71,14 +71,17 @@
   gap: 6px;
 }
 
-.trust-points .check {
+.trust-points .icon,
+.trust-points .lucide,
+.trust-points svg {
+  width: 13px;
+  height: 13px;
   color: var(--ok);
-  font-weight: 700;
 }
 
 /* How it works */
 .steps-section {
-  background: #fff;
+  background: var(--white);
   border-top: 1px solid var(--line-soft);
   padding: var(--space-section) 0;
 }
@@ -169,7 +172,7 @@
 
 /* Trust / security note */
 .security-section {
-  background: #fff;
+  background: var(--white);
   border-top: 1px solid var(--line-soft);
   padding: 0 0 var(--space-section);
 }
@@ -194,8 +197,13 @@
   border-radius: 50%;
   background: var(--ok-bg);
   color: var(--ok);
-  font-size: 14px;
-  font-weight: 700;
+}
+
+.security-icon .icon,
+.security-icon .lucide,
+.security-icon svg {
+  width: 15px;
+  height: 15px;
 }
 
 .security-note h2 {

@@ -1,16 +1,18 @@
+import { refreshIcons } from "./icons.js";
+
 export function dashboardPreview() {
-  return `
+  const html = `
     <div class="dashboard" role="img" aria-label="Dashboard preview showing an open election, upcoming elections, and a vote receipt">
       <div class="window-bar" aria-hidden="true">
         <i class="window-dot"></i><i class="window-dot"></i><i class="window-dot"></i>
       </div>
       <div class="dashboard-body">
         <aside class="dash-sidebar" aria-hidden="true">
-          <div class="dash-side-item active"><span class="side-icon">◈</span>Dashboard</div>
-          <div class="dash-side-item"><span class="side-icon">▭</span>Elections</div>
-          <div class="dash-side-item"><span class="side-icon">▤</span>My Receipts</div>
-          <div class="dash-side-item"><span class="side-icon">◇</span>Verify</div>
-          <div class="dash-side-item"><span class="side-icon">▥</span>Results</div>
+          <div class="dash-side-item active"><i data-lucide="layout-dashboard"></i>Dashboard</div>
+          <div class="dash-side-item"><i data-lucide="landmark"></i>Elections</div>
+          <div class="dash-side-item"><i data-lucide="receipt-text"></i>My Receipts</div>
+          <div class="dash-side-item"><i data-lucide="shield-check"></i>Verify</div>
+          <div class="dash-side-item"><i data-lucide="trophy"></i>Results</div>
         </aside>
         <div class="dash-main">
           <p class="welcome">Welcome back,<strong>Amara Okafor</strong></p>
@@ -43,9 +45,12 @@ export function dashboardPreview() {
               <span class="status status-closed">Closed</span>
             </div>
           </div>
-          <div class="latest-receipt"><span>▤ &nbsp;Latest receipt</span><span class="receipt-code">VC · 7QK4 · 93X2</span></div>
+          <div class="latest-receipt"><span class="receipt-label"><i data-lucide="receipt"></i>Latest receipt</span><span class="receipt-code">VC · 7QK4 · 93X2</span></div>
         </div>
       </div>
     </div>
   `.trim();
+
+  queueMicrotask(refreshIcons);
+  return html;
 }

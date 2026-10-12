@@ -55,10 +55,24 @@
   color: var(--ink-strong);
 }
 
-.side-icon {
-  width: 14px;
-  text-align: center;
-  font-size: 11px;
+.dash-side-item .icon,
+.dash-side-item .lucide,
+.dash-side-item svg {
+  width: 13px;
+  height: 13px;
+}
+
+.latest-receipt .icon,
+.latest-receipt .lucide,
+.latest-receipt svg {
+  width: 12px;
+  height: 12px;
+}
+
+.receipt-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .dash-main {
@@ -66,7 +80,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  background: #fff;
+  background: var(--white);
 }
 
 .welcome {
@@ -169,7 +183,7 @@
 .vote-now {
   font-size: 10px;
   font-weight: 700;
-  color: #fff;
+  color: var(--white);
   background: var(--sky-deep);
   border-radius: 6px;
   padding: 4px 8px;

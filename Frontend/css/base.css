@@ -89,14 +89,16 @@ ol {
   border: 1px solid var(--line);
 }
 
-.brand-mark svg {
+.brand-mark svg,
+.brand-mark .lucide {
   width: 12px;
   height: 12px;
-  fill: none;
-  stroke: var(--sky-deep);
-  stroke-width: 2.4;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  color: var(--sky-deep);
+}
+
+.button .lucide {
+  width: 14px;
+  height: 14px;
 }
 
 .nav-links {
@@ -141,7 +143,7 @@ ol {
 .button-primary {
   background: var(--sky-deep);
   border-color: var(--sky-deep);
-  color: #fff;
+  color: var(--white);
 }
 
 .button-primary:hover {
@@ -167,7 +169,7 @@ ol {
 
 /* Footer */
 .site-footer {
-  background: #fff;
+  background: var(--white);
   border-top: 1px solid var(--line-soft);
   padding: 28px 0;
 }

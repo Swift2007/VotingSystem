@@ -1,6 +1,6 @@
 /* Landing feature grid + trust note. Keeps landing.css under the 300-line limit. */
 .features-section {
-  background: #fff;
+  background: var(--white);
   border-top: 1px solid var(--line-soft);
   padding: 72px 0;
 }
@@ -51,9 +51,15 @@
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: 8px;
-  font-size: 13px;
   color: var(--sky-deep);
   margin-bottom: 12px;
+}
+
+.feature-icon .icon,
+.feature-icon .lucide,
+.feature-icon svg {
+  width: 15px;
+  height: 15px;
 }
 
 .feature-card h3 {
