@@ -1,0 +1,249 @@
+/* Landing page sections only. Shared header, buttons, and footer live in base.css. */
+.hero {
+  padding: 72px 0 84px;
+}
+
+.hero-inner {
+  width: min(var(--max-width), 100% - 48px);
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
+  gap: 56px;
+  align-items: center;
+}
+
+.election-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+
+.election-note .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ok);
+}
+
+.hero-copy h1 {
+  font-size: clamp(34px, 4.4vw, 52px);
+  line-height: 1.04;
+  letter-spacing: -0.035em;
+  color: var(--ink-strong);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.hero-description {
+  max-width: 44ch;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.trust-points {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  font-size: 12px;
+  color: var(--dove);
+}
+
+.trust-points li {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.trust-points .check {
+  color: var(--ok);
+  font-weight: 700;
+}
+
+/* How it works */
+.steps-section {
+  background: #fff;
+  border-top: 1px solid var(--line-soft);
+  padding: var(--space-section) 0;
+}
+
+.section-inner {
+  width: min(var(--max-width), 100% - 48px);
+  margin-inline: auto;
+}
+
+.eyebrow {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--sky-deep);
+  margin-bottom: 10px;
+}
+
+.steps-section h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  letter-spacing: -0.025em;
+  color: var(--ink-strong);
+  margin-bottom: 44px;
+}
+
+.steps-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 40px;
+}
+
+.step {
+  position: relative;
+  padding-top: 22px;
+}
+
+.step::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 34px;
+  right: 0;
+  height: 1px;
+  background: var(--line);
+}
+
+.step-number {
+  position: absolute;
+  top: -11px;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  background: var(--soft-white);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--dove);
+}
+
+.step h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-strong);
+  margin-bottom: 8px;
+}
+
+.step p {
+  font-size: 13px;
+  line-height: 1.65;
+  color: var(--ink);
+  max-width: 32ch;
+}
+
+.receipt-sample {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 5px 10px;
+  background: var(--soft-white);
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  color: var(--ink-strong);
+}
+
+/* Trust / security note */
+.security-section {
+  background: #fff;
+  border-top: 1px solid var(--line-soft);
+  padding: 0 0 var(--space-section);
+}
+
+.security-note {
+  width: min(760px, 100% - 48px);
+  margin-inline: auto;
+  display: flex;
+  gap: 14px;
+  background: var(--soft-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card);
+  padding: 20px 22px;
+}
+
+.security-icon {
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ok-bg);
+  color: var(--ok);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.security-note h2 {
+  font-size: 15px;
+  color: var(--ink-strong);
+  margin-bottom: 6px;
+}
+
+.security-note p {
+  font-size: 13.5px;
+  color: var(--ink);
+}
+
+@media (max-width: 960px) {
+  .hero-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .hero-description {
+    max-width: 60ch;
+  }
+
+  .features-inner {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .steps-list {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 560px;
+  }
+}
+
+
+@media (max-width: 520px) {
+  .hero {
+    padding: 48px 0 56px;
+  }
+
+  .hero-actions .button {
+    flex: 1 1 auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
