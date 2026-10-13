@@ -1,0 +1,96 @@
+/* Landing feature grid + trust note. Keeps landing.css under the 300-line limit. */
+.features-section {
+  background: var(--white);
+  border-top: 1px solid var(--line-soft);
+  padding: 52px 0;
+}
+
+.features-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 24px;
+}
+
+.features-inner h2 {
+  font-size: clamp(20px, 2.4vw, 26px);
+  letter-spacing: -0.02em;
+  color: var(--ink-strong);
+  line-height: 1.2;
+}
+
+.features-inner > p {
+  font-size: 13.5px;
+  color: var(--ink);
+  max-width: 42ch;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.feature-card {
+  background: var(--soft-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card);
+  padding: 16px;
+}
+
+.feature-card:last-child {
+  grid-column: span 2;
+}
+
+.feature-icon {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--sky-deep);
+  margin-bottom: 12px;
+}
+
+.feature-icon .icon,
+.feature-icon .lucide,
+.feature-icon svg {
+  width: 15px;
+  height: 15px;
+}
+
+.feature-card h3 {
+  font-size: 13.5px;
+  color: var(--ink-strong);
+  margin-bottom: 6px;
+}
+
+.feature-card p {
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+@media (max-width: 960px) {
+  .features-inner {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .feature-card:last-child {
+    grid-column: span 1;
+  }
+}
+
+@media (max-width: 560px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}

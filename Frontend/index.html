@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f8f6">
+    <meta name="description" content="VoteChain — a clear, private way for students to vote and verify their ballot.">
+    <title>VoteChain — Student Council Voting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="assets/logo/logo.svg">
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/landing/landing.css">
+    <link rel="stylesheet" href="css/landing/landing-features.css">
+    <link rel="stylesheet" href="css/landing/dashboard-preview.css">
+    <link rel="stylesheet" href="css/landing/animations.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script type="module" src="js/script.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-wrap" aria-label="Main navigation">
+        <a class="brand" href="#top" aria-label="VoteChain home">
+          <span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="assets/logo/logo.svg" alt=""></span>
+          <span>VoteChain</span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-links" aria-label="Open navigation"><span></span><span></span></button>
+        <div class="nav-links" id="nav-links">
+          <a href="#how-it-works">How it works</a>
+          <a href="#features">Features</a>
+          <a href="#security">Security</a>
+        </div>
+        <a class="button button-small button-outline sign-in" href="#sign-in">Sign in</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="election-note"><span class="dot" aria-hidden="true"></span> Student Council 2026 — voting open until 18:00</p>
+            <h1 id="hero-title">Every student votes once.<br>Every vote can be checked.</h1>
+            <p class="hero-description">Cast your student council ballot in under a minute. Nobody can see who you chose, and you get a receipt to confirm your vote was counted.</p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#sign-in">Sign in to vote <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+              <a class="button button-outline" href="#how-it-works">How it works</a>
+            </div>
+            <ul class="trust-points" aria-label="Voting assurances">
+              <li><i data-lucide="check" aria-hidden="true"></i> Private ballot</li>
+              <li><i data-lucide="check" aria-hidden="true"></i> Receipt for every vote</li>
+              <li><i data-lucide="check" aria-hidden="true"></i> Results at close</li>
+            </ul>
+          </div>
+          <div class="preview-wrap" id="dashboard-preview" aria-label="Preview of the student voting dashboard"></div>
+        </div>
+      </section>
+
+      <section class="steps-section" id="how-it-works" aria-labelledby="steps-title">
+        <div class="section-inner">
+          <p class="eyebrow" data-reveal>How it works</p>
+          <h2 id="steps-title" data-reveal>Three steps, about a minute.</h2>
+          <ol class="steps-list">
+            <li class="step" data-reveal><span class="step-number">01</span><h3>Sign in</h3><p>Use your school email or registration number. We check you’re on the student register.</p></li>
+            <li class="step" data-reveal><span class="step-number">02</span><h3>Vote once</h3><p>Choose a candidate or abstain for each position, review your ballot, then confirm. It can’t be changed or cast twice.</p></li>
+            <li class="step" data-reveal><span class="step-number">03</span><h3>Verify with a receipt</h3><p>You get a unique code. Use it anytime to confirm your vote was recorded, without revealing your choice.</p><span class="receipt-sample">Receipt&nbsp; VC · 7QK4 · 93X2 · 2H8P</span></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="features-section" id="features" aria-labelledby="features-title">
+        <div class="section-inner features-inner">
+          <div data-reveal><p class="eyebrow">Designed for trust</p><h2 id="features-title">A vote you can check,<br>without giving up privacy.</h2></div>
+          <p data-reveal>One ballot per student, a private choice, and a tamper-evident record. When voting closes, everyone sees the same published results.</p>
+        </div>
+        <div class="section-inner">
+          <ul class="feature-grid" aria-label="Voting system features">
+            <li class="feature-card" data-reveal><span class="feature-icon" aria-hidden="true"><i data-lucide="badge-check"></i></span><h3>One vote per student</h3><p>Eligibility is checked before voting. Repeats and double submits are rejected.</p></li>
+            <li class="feature-card" data-reveal><span class="feature-icon" aria-hidden="true"><i data-lucide="lock"></i></span><h3>Private ballots</h3><p>Your identity and choice are kept separate. Nobody can see who you chose.</p></li>
+            <li class="feature-card" data-reveal><span class="feature-icon" aria-hidden="true"><i data-lucide="link"></i></span><h3>Tamper-evident record</h3><p>Each accepted ballot has a verifiable reference. Quiet edits do not go unnoticed.</p></li>
+            <li class="feature-card" data-reveal><span class="feature-icon" aria-hidden="true"><i data-lucide="receipt-text"></i></span><h3>Receipt verification</h3><p>Check your receipt anytime. It proves counting without revealing your choice.</p></li>
+            <li class="feature-card" data-reveal><span class="feature-icon" aria-hidden="true"><i data-lucide="trending-up"></i></span><h3>Results at close</h3><p>Totals are published after voting ends, using the same result for everyone.</p></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="security-section" id="security" aria-labelledby="security-title">
+        <div class="section-inner">
+          <div class="security-note" data-reveal="scale"><span class="security-icon" aria-hidden="true"><i data-lucide="shield-check"></i></span><div class="security-text"><h2 id="security-title">Your choice stays private.</h2><p>Your receipt confirms that a ballot was counted. It never shows which candidate you selected.</p></div></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="footer-inner"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="assets/logo/logo.svg" alt=""></span><span>VoteChain</span></a><p>Student Council Voting · 2026</p></div></footer>
+  </body>
+</html>
+

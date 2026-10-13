@@ -1,0 +1,228 @@
+.preview-wrap {
+  min-width: 0;
+}
+
+.dashboard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow-subtle);
+  overflow: hidden;
+  font-size: 12px;
+}
+
+.window-bar {
+  display: flex;
+  gap: 5px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.window-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--line);
+}
+
+.dashboard-body {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+  min-height: 260px;
+}
+
+.dash-sidebar {
+  border-right: 1px solid var(--line-soft);
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dash-side-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 9px;
+  border-radius: 7px;
+  color: var(--dove);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.dash-side-item.active {
+  background: var(--sky-soft-bg);
+  color: var(--ink-strong);
+}
+
+.dash-side-item .icon,
+.dash-side-item .lucide,
+.dash-side-item svg {
+  width: 13px;
+  height: 13px;
+}
+
+.latest-receipt .icon,
+.latest-receipt .lucide,
+.latest-receipt svg {
+  width: 12px;
+  height: 12px;
+}
+
+.receipt-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dash-main {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--white);
+}
+
+.welcome {
+  font-size: 11px;
+  color: var(--dove);
+  line-height: 1.4;
+}
+
+.welcome strong {
+  display: block;
+  color: var(--ink-strong);
+  font-size: 12px;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.stat {
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  padding: 8px;
+  background: var(--card);
+}
+
+.stat-label {
+  display: block;
+  font-size: 10px;
+  color: var(--dove);
+}
+
+.stat-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--ink-strong);
+}
+
+.election-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.election-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--card);
+}
+
+.election-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  flex: 1;
+}
+
+.election-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--ink-strong);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.election-date {
+  font-size: 10px;
+  color: var(--dove);
+}
+
+.status {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.status-open {
+  background: var(--ok-bg);
+  color: var(--ok);
+}
+
+.status-upcoming {
+  background: var(--warn-bg);
+  color: var(--warn);
+}
+
+.status-closed {
+  background: var(--line-soft);
+  color: var(--dove);
+}
+
+.vote-now {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--white);
+  background: var(--sky-deep);
+  border-radius: 6px;
+  padding: 4px 8px;
+  white-space: nowrap;
+}
+
+.latest-receipt {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--soft-white);
+  color: var(--dove);
+  font-size: 10.5px;
+}
+
+.receipt-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--ink-strong);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+@media (max-width: 520px) {
+  .dashboard-body {
+    grid-template-columns: 1fr;
+  }
+
+  .dash-sidebar {
+    flex-direction: row;
+    overflow-x: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+
+  .dash-side-item {
+    white-space: nowrap;
+  }
+}

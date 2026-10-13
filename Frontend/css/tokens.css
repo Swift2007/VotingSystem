@@ -1,0 +1,45 @@
+:root {
+  --soft-white: #f8f8f6;
+  --card: #fdfdfc;
+  --white: #ffffff;
+  --ink: #3f3f46;
+  --ink-strong: #27272a;
+  --dove: #8a8a8e;
+  --line: #e4e4e1;
+  --line-soft: #efefec;
+  --sky-soft: #8ec5e8;
+  --sky-soft-bg: #e8f2f9;
+  --sky-deep: #2f78b0;
+  --sky-deep-hover: #286a9d;
+  --ok: #3e7e5a;
+  --ok-bg: #e6f0ea;
+  --warn: #9a7420;
+  --warn-bg: #f7eed7;
+  --radius-card: 12px;
+  --radius-control: 8px;
+  --font-sans: "Inter", -apple-system, "Segoe UI", sans-serif;
+  --max-width: 1120px;
+  --header-height: 64px;
+  --shadow-subtle: 0 1px 2px rgb(39 39 42 / 5%), 0 8px 24px rgb(39 39 42 / 6%);
+  --space-section: 60px;
+  --icon-size: 14px;
+}
+
+.icon,
+.lucide {
+  width: var(--icon-size);
+  height: var(--icon-size);
+  flex: 0 0 auto;
+}
+
+.icon-lg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --space-section: 44px;
+  }
+}
