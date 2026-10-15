@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f8f6">
+    <meta name="description" content="Create your VoteX account with your school email and registration number.">
+    <title>Create your account — VoteX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../assets/logo/logo.svg">
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/auth/auth.css">
+    <script type="module" src="../js/sign-up.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-wrap auth-nav" aria-label="Main navigation">
+        <a class="brand" href="../index.html" aria-label="VoteX home">
+          <span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="../assets/logo/logo.svg" alt=""></span>
+          <span>VoteX</span>
+        </a>
+        <p class="auth-top-text">Have an account? <a class="auth-top-link" href="./sign-in.html">Sign in</a></p>
+      </nav>
+    </header>
+
+    <main class="auth-wrap auth-wrap-wide">
+      <section class="auth-card" aria-labelledby="signup-title">
+        <ol class="stepper" aria-label="Account creation progress">
+          <li class="stepper-item is-current" aria-current="step"><span>Details</span></li>
+          <li class="stepper-item"><span>Verify email</span></li>
+          <li class="stepper-item"><span>Done</span></li>
+        </ol>
+
+        <h1 id="signup-title">Create your account</h1>
+        <p class="auth-subtitle">We check your details against the student register so each student gets exactly one vote.</p>
+
+        <form id="signup-form" novalidate>
+          <div class="field">
+            <label for="email">School email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              autocapitalize="none"
+              spellcheck="false"
+              placeholder="a.okafor@school.edu"
+              value="a.okafor@school.edu"
+              required
+              aria-describedby="email-hint">
+            <p class="field-hint field-note" id="email-hint">Must end in @school.edu</p>
+          </div>
+
+          <div class="field">
+            <label for="regno">Registration number</label>
+            <div class="regno-wrap">
+              <input
+                id="regno"
+                name="regno"
+                type="text"
+                autocomplete="off"
+                autocapitalize="characters"
+                spellcheck="false"
+                placeholder="SC/2023/0412"
+                value="SC/2023/0412"
+                required
+                aria-describedby="regno-hint regno-badge">
+              <span class="regno-badge" id="regno-badge" role="status">Found on register</span>
+            </div>
+            <p class="field-hint" id="regno-hint" hidden></p>
+          </div>
+
+          <div class="field">
+            <label for="new-password">Password</label>
+            <div class="password-wrap">
+              <input
+                id="new-password"
+                name="new-password"
+                type="password"
+                autocomplete="new-password"
+                placeholder="••••••••"
+                required
+                aria-describedby="pw-rules">
+              <button class="show-toggle" type="button" data-for="new-password" aria-controls="new-password" aria-pressed="false">Show</button>
+            </div>
+            <ul class="pw-rules" id="pw-rules" aria-live="polite">
+              <li data-rule="length"><span aria-hidden="true">✓</span> 10+ characters</li>
+              <li data-rule="number"><span aria-hidden="true">✓</span> A number</li>
+              <li data-rule="symbol"><span aria-hidden="true">○</span> A symbol</li>
+            </ul>
+          </div>
+
+          <div class="field">
+            <label for="confirm-password">Confirm password</label>
+            <input
+              id="confirm-password"
+              name="confirm-password"
+              type="password"
+              autocomplete="new-password"
+              placeholder="Re-enter password"
+              required
+              aria-describedby="confirm-hint">
+            <p class="field-hint" id="confirm-hint" hidden></p>
+          </div>
+
+          <button class="button button-primary auth-submit" type="submit">Continue</button>
+
+          <div class="form-note" id="form-note" role="status" hidden></div>
+
+          <p class="auth-next">Next, we’ll send a 6-digit code to your school email.<br>Registration number not found or already used? <a class="inline-link" href="#electoral-office">Contact the electoral office</a></p>
+        </form>
+      </section>
+      <p class="auth-footnote">Your sign-in confirms you can vote. It’s never linked to how you voted.</p>
+    </main>
+  </body>
+</html>

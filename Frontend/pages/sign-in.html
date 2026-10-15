@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f8f6">
+    <meta name="description" content="Sign in to VoteX with your school account to vote.">
+    <title>Sign in — VoteX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../assets/logo/logo.svg">
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/auth/auth.css">
+    <script type="module" src="../js/sign-in.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav-wrap auth-nav" aria-label="Main navigation">
+        <a class="brand" href="../index.html" aria-label="VoteX home">
+          <span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="../assets/logo/logo.svg" alt=""></span>
+          <span>VoteX</span>
+        </a>
+        <a class="auth-top-link" href="../index.html#how-it-works">How it works</a>
+      </nav>
+    </header>
+
+    <main class="auth-wrap">
+      <section class="auth-card" aria-labelledby="signin-title">
+        <h1 id="signin-title">Sign in to vote</h1>
+        <p class="auth-subtitle">Use your school account.</p>
+
+        <form id="signin-form" novalidate>
+          <div class="field">
+            <label for="identifier">School email or registration number</label>
+            <input
+              id="identifier"
+              name="identifier"
+              type="text"
+              autocomplete="username"
+              autocapitalize="none"
+              spellcheck="false"
+              placeholder="a.okafor@school.edu"
+              value="a.okafor@school.edu"
+              required
+              aria-describedby="identifier-hint">
+            <p class="field-hint" id="identifier-hint" hidden></p>
+          </div>
+
+          <div class="field">
+            <div class="label-row">
+              <label for="password">Password</label>
+              <a class="inline-link" href="#forgot-password">Forgot password?</a>
+            </div>
+            <div class="password-wrap">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                autocomplete="current-password"
+                placeholder="••••••••"
+                required
+                minlength="1"
+                aria-describedby="password-hint">
+              <button class="show-toggle" type="button" aria-controls="password" aria-pressed="false">Show</button>
+            </div>
+            <p class="field-hint" id="password-hint" hidden></p>
+          </div>
+
+          <button class="button button-primary auth-submit" type="submit">Sign in</button>
+
+          <div class="form-error" id="form-error" role="alert" hidden>
+            <p><strong>Error state:</strong> “Email or password is incorrect.” Same message for both, so it doesn’t reveal which accounts exist.</p>
+          </div>
+
+          <div class="auth-divider" aria-hidden="true"></div>
+
+          <p class="auth-switch">First time voting? <a class="inline-link" href="./sign-up.html">Create your account</a></p>
+        </form>
+      </section>
+      <p class="auth-footnote">Your sign-in confirms you can vote. It’s never linked to how you voted.</p>
+    </main>
+  </body>
+</html>
