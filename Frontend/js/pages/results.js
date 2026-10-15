@@ -1,4 +1,4 @@
-import { refreshIcons } from "./components/icons.js";
+import { refreshIcons } from "../shared/icons.js";
 
 // Results: icons + bar widths from vote data (demo totals until the API exists).
 refreshIcons();

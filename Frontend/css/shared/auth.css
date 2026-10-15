@@ -1,0 +1,212 @@
+/* Shared auth layout: centered card, fields, password toggle, footer note.
+   Page-specific extras live in css/pages/sign-up.css, verify-email.css,
+   sign-up-done.css. Messaging (.field-hint, .form-error, …) lives in
+   shared/forms.css. */
+.auth-nav {
+  justify-content: space-between;
+}
+
+.auth-top-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--sky-deep);
+}
+
+.auth-top-link:hover {
+  text-decoration: underline;
+}
+
+.auth-top-text {
+  font-size: 13px;
+  color: var(--ink);
+}
+
+/* Stepper: Details → Verify email → Done (shared across the auth flow) */
+.stepper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.stepper-item {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--dove);
+  padding-top: 8px;
+  border-top: 2px solid var(--line);
+}
+
+.stepper-item.is-current {
+  color: var(--ink-strong);
+  border-top-color: var(--sky-deep);
+}
+
+.stepper-item.is-done {
+  color: var(--ok);
+  border-top-color: var(--ok);
+}
+
+.auth-wrap {
+  width: min(440px, 100% - 40px);
+  margin-inline: auto;
+  padding: 64px 0 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.auth-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-subtle);
+  padding: 28px 28px 24px;
+}
+
+.auth-card h1 {
+  font-size: 21px;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  color: var(--ink-strong);
+  font-weight: 700;
+}
+
+.auth-subtitle {
+  font-size: 13.5px;
+  color: var(--ink);
+  margin: 4px 0 20px;
+}
+
+.field {
+  margin-bottom: 14px;
+}
+
+.field label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-strong);
+  margin-bottom: 6px;
+}
+
+.label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.label-row label {
+  margin-bottom: 0;
+}
+
+.inline-link {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--sky-deep);
+  white-space: nowrap;
+}
+
+.inline-link:hover {
+  text-decoration: underline;
+}
+
+.field input {
+  width: 100%;
+  min-height: 40px;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+  background: var(--white);
+  font: inherit;
+  font-size: 13.5px;
+  color: var(--ink-strong);
+}
+
+.field input::placeholder {
+  color: var(--dove);
+}
+
+.field input:focus {
+  outline: none;
+  border-color: var(--sky-deep);
+  box-shadow: 0 0 0 3px rgb(47 120 176 / 18%);
+}
+
+.field input[aria-invalid="true"] {
+  border-color: var(--warn);
+}
+
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap input {
+  padding-right: 64px;
+}
+
+.show-toggle {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--dove);
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.show-toggle:hover {
+  color: var(--ink-strong);
+  background: var(--soft-white);
+}
+
+.auth-submit {
+  width: 100%;
+  min-height: 42px;
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.auth-submit[disabled] {
+  opacity: 0.7;
+  cursor: wait;
+  transform: none;
+}
+
+.auth-divider {
+  height: 1px;
+  background: var(--line-soft);
+  margin: 18px 0 14px;
+}
+
+.auth-switch {
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--dove);
+}
+
+.auth-footnote {
+  text-align: center;
+  font-size: 11.5px;
+  color: var(--dove);
+  margin-top: 22px;
+  line-height: 1.5;
+}
+
+@media (max-width: 520px) {
+  .auth-wrap {
+    padding: 36px 0 32px;
+  }
+
+  .auth-card {
+    padding: 22px 20px;
+  }
+}

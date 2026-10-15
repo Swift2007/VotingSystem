@@ -1,4 +1,4 @@
-import { refreshIcons } from "./components/icons.js";
+import { refreshIcons } from "../shared/icons.js";
 
 // Ballot page: countdown, card selection, live ballot summary.
 // Picks stay in memory only — never stored — and the backend enforces
