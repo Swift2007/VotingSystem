@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f8f6">
+    <meta name="description" content="Verify a VoteX receipt code to confirm the ballot was counted.">
+    <title>Verify Receipt — VoteX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../assets/logo/logo.svg">
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/dashboard/dashboard.css">
+    <link rel="stylesheet" href="../css/dashboard/receipts.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script type="module" src="../js/verify-receipt.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" aria-label="Account navigation">
+        <a class="brand" href="../index.html" aria-label="VoteX home">
+          <span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="../assets/logo/logo.svg" alt=""></span>
+          <span>VoteX</span>
+        </a>
+        <nav aria-label="Primary">
+          <ul class="side-nav">
+            <li><a href="./dashboard.html"><i data-lucide="layout-dashboard" aria-hidden="true"></i>Dashboard</a></li>
+            <li><a href="./election.html"><i data-lucide="vote" aria-hidden="true"></i>Elections</a></li>
+            <li><a href="./my-receipts.html"><i data-lucide="receipt-text" aria-hidden="true"></i>My Receipts</a></li>
+            <li><a href="./verify-receipt.html" aria-current="page"><i data-lucide="shield-check" aria-hidden="true"></i>Verify Receipt</a></li>
+            <li><a href="./results.html"><i data-lucide="trophy" aria-hidden="true"></i>Results</a></li>
+            <li><a href="./profile.html"><i data-lucide="user" aria-hidden="true"></i>Profile</a></li>
+          </ul>
+        </nav>
+        <a class="sign-out" href="../index.html"><i data-lucide="log-out" aria-hidden="true"></i>Sign out</a>
+      </aside>
+
+      <div class="main-col">
+        <header class="topbar">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <span aria-current="page">Verify Receipt</span>
+          </nav>
+          <p class="account-avatar" aria-label="Signed in as Amara Okafor">AO</p>
+        </header>
+
+        <main class="page page-narrow" aria-labelledby="page-title">
+          <h1 id="page-title">Verify receipt</h1>
+          <p class="page-sub">Enter a receipt code to confirm the ballot was counted. It never reveals the choice.</p>
+
+          <section class="verify-card" aria-label="Receipt checker">
+            <form id="verify-form" novalidate>
+              <div class="field">
+                <label for="receipt-code">Receipt code</label>
+                <input
+                  id="receipt-code"
+                  class="code-input"
+                  name="receipt-code"
+                  type="text"
+                  autocomplete="off"
+                  autocapitalize="characters"
+                  spellcheck="false"
+                  placeholder="VC · 7QK4 · 93X2 · 2H8P"
+                  required
+                  aria-describedby="code-hint">
+                <p class="field-hint field-note" id="code-hint">Codes look like VC · XXXX · XXXX · XXXX</p>
+              </div>
+              <button class="button button-primary verify-submit" type="submit">Verify</button>
+            </form>
+
+            <div class="result result-ok" id="result-ok" role="status" hidden>
+              <p class="result-icon" aria-hidden="true"><span>✓</span></p>
+              <h2>Receipt valid — ballot counted</h2>
+              <p id="result-election">Sports Captain · voted 28 Apr 2026</p>
+              <p class="result-note">This receipt proves counting. It does not reveal the candidate.</p>
+            </div>
+
+            <div class="result result-bad" id="result-bad" role="alert" hidden>
+              <h2>No ballot matches this code</h2>
+              <p>Check the code and try again. Codes use only letters A–Z and digits 0–9.</p>
+            </div>
+
+            <p class="demo-note">Demo data — try <button class="inline-link link-button" type="button" data-fill="VC · 7QK4 · 93X2 · 2H8P">VC · 7QK4 · 93X2 · 2H8P</button></p>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f8f6">
+    <meta name="description" content="Published VoteX election results. Totals appear only after voting closes.">
+    <title>Results — VoteX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../assets/logo/logo.svg">
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/dashboard/dashboard.css">
+    <link rel="stylesheet" href="../css/dashboard/receipts.css">
+    <link rel="stylesheet" href="../css/dashboard/results.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script type="module" src="../js/results.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" aria-label="Account navigation">
+        <a class="brand" href="../index.html" aria-label="VoteX home">
+          <span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="../assets/logo/logo.svg" alt=""></span>
+          <span>VoteX</span>
+        </a>
+        <nav aria-label="Primary">
+          <ul class="side-nav">
+            <li><a href="./dashboard.html"><i data-lucide="layout-dashboard" aria-hidden="true"></i>Dashboard</a></li>
+            <li><a href="./election.html"><i data-lucide="vote" aria-hidden="true"></i>Elections</a></li>
+            <li><a href="./my-receipts.html"><i data-lucide="receipt-text" aria-hidden="true"></i>My Receipts</a></li>
+            <li><a href="./verify-receipt.html"><i data-lucide="shield-check" aria-hidden="true"></i>Verify Receipt</a></li>
+            <li><a href="./results.html" aria-current="page"><i data-lucide="trophy" aria-hidden="true"></i>Results</a></li>
+            <li><a href="./profile.html"><i data-lucide="user" aria-hidden="true"></i>Profile</a></li>
+          </ul>
+        </nav>
+        <a class="sign-out" href="../index.html"><i data-lucide="log-out" aria-hidden="true"></i>Sign out</a>
+      </aside>
+
+      <div class="main-col">
+        <header class="topbar">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <span aria-current="page">Results</span>
+          </nav>
+          <p class="account-avatar" aria-label="Signed in as Amara Okafor">AO</p>
+        </header>
+
+        <main class="page" aria-labelledby="page-title">
+          <h1 id="page-title">Results</h1>
+          <p class="page-sub">Totals are published only after voting closes — everyone sees the same result.</p>
+
+          <section class="result-election" aria-labelledby="sc-title">
+            <div class="result-head">
+              <div>
+                <h2 id="sc-title">Sports Captain</h2>
+                <p class="receipt-meta">Closed 28 Apr 2026 · 412 ballots · 68% turnout</p>
+              </div>
+              <span class="pill pill-counted"><i data-lucide="check" aria-hidden="true"></i>Published</span>
+            </div>
+            <p class="winner-card"><i data-lucide="trophy" aria-hidden="true"></i><span><strong>Winner — Tiwonge Kachingwe</strong><span class="winner-sub">187 votes · 45.4%</span></span></p>
+            <ul class="bars">
+              <li>
+                <div class="bar-row"><span>Tiwonge Kachingwe</span><span>187 · 45.4%</span></div>
+                <div class="bar"><span data-votes="187" data-total="412"></span></div>
+              </li>
+              <li>
+                <div class="bar-row"><span>Blessings Mvula</span><span>132 · 32.0%</span></div>
+                <div class="bar"><span data-votes="132" data-total="412"></span></div>
+              </li>
+              <li>
+                <div class="bar-row"><span>Kondwani Daka</span><span>93 · 22.6%</span></div>
+                <div class="bar"><span data-votes="93" data-total="412"></span></div>
+              </li>
+            </ul>
+            <p class="certified-note"><i data-lucide="shield-check" aria-hidden="true"></i>Certified from the tamper-evident record. Individual choices are never shown.</p>
+          </section>
+
+          <section class="result-election is-locked" aria-labelledby="council-title">
+            <div class="result-head">
+              <div>
+                <h2 id="council-title">Student Council 2026</h2>
+                <p class="receipt-meta">Voting open until 18:00 today</p>
+              </div>
+              <span class="pill pill-recorded"><i data-lucide="clock" aria-hidden="true"></i>Not yet published</span>
+            </div>
+            <p class="locked-note">Results publish automatically when voting closes. <a class="inline-link" href="./election.html">Vote now →</a></p>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

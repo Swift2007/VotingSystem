@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f8f6">
+    <meta name="description" content="Your VoteX vote receipts. Each receipt proves counting without revealing your choice.">
+    <title>My Receipts — VoteX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../assets/logo/logo.svg">
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/dashboard/dashboard.css">
+    <link rel="stylesheet" href="../css/dashboard/receipts.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script type="module" src="../js/my-receipts.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" aria-label="Account navigation">
+        <a class="brand" href="../index.html" aria-label="VoteX home">
+          <span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="../assets/logo/logo.svg" alt=""></span>
+          <span>VoteX</span>
+        </a>
+        <nav aria-label="Primary">
+          <ul class="side-nav">
+            <li><a href="./dashboard.html"><i data-lucide="layout-dashboard" aria-hidden="true"></i>Dashboard</a></li>
+            <li><a href="./election.html"><i data-lucide="vote" aria-hidden="true"></i>Elections</a></li>
+            <li><a href="./my-receipts.html" aria-current="page"><i data-lucide="receipt-text" aria-hidden="true"></i>My Receipts</a></li>
+            <li><a href="./verify-receipt.html"><i data-lucide="shield-check" aria-hidden="true"></i>Verify Receipt</a></li>
+            <li><a href="./results.html"><i data-lucide="trophy" aria-hidden="true"></i>Results</a></li>
+            <li><a href="./profile.html"><i data-lucide="user" aria-hidden="true"></i>Profile</a></li>
+          </ul>
+        </nav>
+        <a class="sign-out" href="../index.html"><i data-lucide="log-out" aria-hidden="true"></i>Sign out</a>
+      </aside>
+
+      <div class="main-col">
+        <header class="topbar">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <span aria-current="page">My Receipts</span>
+          </nav>
+          <p class="account-avatar" aria-label="Signed in as Amara Okafor">AO</p>
+        </header>
+
+        <main class="page" aria-labelledby="page-title">
+          <h1 id="page-title">My Receipts</h1>
+          <p class="page-sub">Every vote gives you a receipt. It proves your ballot was counted — without revealing your choice.</p>
+
+          <ul class="receipt-list">
+            <li class="receipt-card">
+              <div class="receipt-top">
+                <div>
+                  <h2>Sports Captain</h2>
+                  <p class="receipt-meta">Voted 28 Apr 2026 · Election closed</p>
+                </div>
+                <span class="pill pill-counted"><i data-lucide="check" aria-hidden="true"></i>Counted</span>
+              </div>
+              <div class="code-row">
+                <code>VC · 7QK4 · 93X2 · 2H8P</code>
+                <button class="copy-btn" type="button" data-copy="VC · 7QK4 · 93X2 · 2H8P"><i data-lucide="copy" aria-hidden="true"></i><span>Copy</span></button>
+              </div>
+              <a class="inline-link verify-link" href="./verify-receipt.html" data-code="VC · 7QK4 · 93X2 · 2H8P">Verify this receipt →</a>
+            </li>
+            <li class="receipt-card">
+              <div class="receipt-top">
+                <div>
+                  <h2>Student Council 2026</h2>
+                  <p class="receipt-meta">Voted today · Counted at close</p>
+                </div>
+                <span class="pill pill-recorded"><i data-lucide="clock" aria-hidden="true"></i>Recorded</span>
+              </div>
+              <div class="code-row">
+                <code>VC · 2M8P · 44AB · 9QWE</code>
+                <button class="copy-btn" type="button" data-copy="VC · 2M8P · 44AB · 9QWE"><i data-lucide="copy" aria-hidden="true"></i><span>Copy</span></button>
+              </div>
+              <a class="inline-link verify-link" href="./verify-receipt.html" data-code="VC · 2M8P · 44AB · 9QWE">Verify this receipt →</a>
+            </li>
+          </ul>
+
+          <p class="page-footnote">Keep your codes private-ish: anyone with a code can check it was counted, but no code ever reveals who you voted for.</p>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

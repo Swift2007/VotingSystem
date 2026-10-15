@@ -1,0 +1,128 @@
+/* Dashboard overview: stats, election cards, recent receipts. */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.stat-card {
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.stat-card .stat-label {
+  font-size: 12px;
+  color: var(--dove);
+}
+
+.stat-card .stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ink-strong);
+}
+
+.section-title {
+  font-size: 15px;
+  color: var(--ink-strong);
+  margin-bottom: 12px;
+}
+
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.section-head .section-title {
+  margin-bottom: 0;
+}
+
+.page section {
+  margin-bottom: 24px;
+}
+
+.election-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.election-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card);
+  padding: 16px 18px;
+}
+
+.election-card h3 {
+  font-size: 14.5px;
+  color: var(--ink-strong);
+}
+
+.election-side {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+.pill-closed {
+  background: var(--line-soft);
+  color: var(--dove);
+}
+
+.mini-receipts {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-card);
+  padding: 6px 18px;
+}
+
+.mini-receipts li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.mini-receipts li:last-child {
+  border-bottom: 0;
+}
+
+.mini-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-strong);
+}
+
+@media (max-width: 640px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .election-card {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .election-side {
+    justify-content: space-between;
+  }
+}
