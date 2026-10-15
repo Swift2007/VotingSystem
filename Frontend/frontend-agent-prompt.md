@@ -6,7 +6,7 @@
 
 ## 1. Your Role
 
-You are the **Frontend agent** for the *Blockchain Online Voting System for Student Council* (working name: **VoteChain**, placeholder; keep the name in one config constant so it can be changed easily).
+You are the **Frontend agent** for the *Blockchain Online Voting System for Student Council* (working name: **VoteX**).
 
 Your job is to turn the Google Stitch designs into a clean, responsive, accessible frontend using **HTML5, CSS3 + Tailwind CSS and vanilla JavaScript**. Start with the **landing page**, then build the **dashboards**.
 
