@@ -2,6 +2,8 @@
 // Falls back to normal navigation when fetch fails (e.g. opened via file://).
 // Page scripts re-execute per visit (cache-busted import) and register
 // interval/listener cleanup on window.__spaCleanups, which runs before swap.
+import { refreshIcons } from "./icons.js";
+
 const MODULE_BY_PAGE = {
   "index.html": "landing",
   "sign-in.html": "sign-in",
@@ -17,30 +19,18 @@ const MODULE_BY_PAGE = {
 };
 
 let navId = 0;
-let lucideLoading = null;
 
 function pageName(pathname) {
   const file = pathname.split("/").pop() || "index.html";
   return MODULE_BY_PAGE[file] ?? null;
 }
 
-function ensureLucide() {
-  if (window.lucide) {
-    window.lucide.createIcons();
-    return Promise.resolve();
-  }
-  if (!document.querySelector("[data-lucide]")) return Promise.resolve();
-  lucideLoading ??= new Promise((resolve) => {
-    const script = document.createElement("script");
-    script.src = "https://unpkg.com/lucide@latest";
-    script.onload = () => {
-      if (window.lucide) window.lucide.createIcons();
-      resolve();
-    };
-    script.onerror = () => resolve();
-    document.head.appendChild(script);
-  });
-  return lucideLoading;
+async function bootPage(url) {
+  const name = pageName(new URL(url, location.href).pathname);
+  if (!name) return;
+  navId += 1;
+  await import(new URL(`../pages/${name}.js?spa=${navId}`, import.meta.url));
+  refreshIcons();
 }
 
 function runCleanups() {
@@ -97,14 +87,6 @@ function syncMeta(doc) {
   const next = doc.querySelector('meta[name="description"]');
   const current = document.querySelector('meta[name="description"]');
   if (next && current) current.setAttribute("content", next.getAttribute("content") ?? "");
-}
-
-async function bootPage(url) {
-  const name = pageName(new URL(url, location.href).pathname);
-  if (!name) return;
-  navId += 1;
-  await import(new URL(`../pages/${name}.js?spa=${navId}`, import.meta.url));
-  await ensureLucide();
 }
 
 async function navigate(url, { push = true } = {}) {
