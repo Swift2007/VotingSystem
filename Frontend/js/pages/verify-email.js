@@ -102,6 +102,7 @@ resendButton?.addEventListener("click", () => {
 });
 
 startCooldown();
+(window.__spaCleanups ??= []).push(() => window.clearInterval(timerId));
 
 form?.addEventListener("submit", (event) => {
   event.preventDefault();

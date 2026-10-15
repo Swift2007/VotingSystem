@@ -10,7 +10,9 @@ export function initLandingPage() {
   wireNavigation();
   refreshIcons();
   initReveal();
-  window.addEventListener("load", refreshIcons, { once: true });
+  if (document.readyState !== "complete") {
+    window.addEventListener("load", refreshIcons, { once: true });
+  }
 }
 
 initLandingPage();

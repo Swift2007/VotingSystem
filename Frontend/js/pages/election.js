@@ -36,7 +36,8 @@ function tickCountdown() {
 }
 
 tickCountdown();
-window.setInterval(tickCountdown, 1000);
+const countdownId = window.setInterval(tickCountdown, 1000);
+(window.__spaCleanups ??= []).push(() => window.clearInterval(countdownId));
 
 // --- Manifesto expanders (inside labels, so don't trigger the radio) ---
 document.querySelectorAll(".manifesto-toggle").forEach((button) => {

@@ -27,4 +27,5 @@ export function initReveal() {
 
   onScroll();
   window.addEventListener("scroll", onScroll, { passive: true });
+  (window.__spaCleanups ??= []).push(() => window.removeEventListener("scroll", onScroll));
 }
