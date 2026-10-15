@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f8f6">
+    <meta name="description" content="Your VoteX profile and voter status.">
+    <title>Profile — VoteX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../assets/logo/logo.svg">
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/dashboard/dashboard.css">
+    <link rel="stylesheet" href="../css/dashboard/receipts.css">
+    <link rel="stylesheet" href="../css/dashboard/profile.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script type="module" src="../js/profile.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" aria-label="Account navigation">
+        <a class="brand" href="../index.html" aria-label="VoteX home">
+          <span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="../assets/logo/logo.svg" alt=""></span>
+          <span>VoteX</span>
+        </a>
+        <nav aria-label="Primary">
+          <ul class="side-nav">
+            <li><a href="./dashboard.html"><i data-lucide="layout-dashboard" aria-hidden="true"></i>Dashboard</a></li>
+            <li><a href="./election.html"><i data-lucide="vote" aria-hidden="true"></i>Elections</a></li>
+            <li><a href="./my-receipts.html"><i data-lucide="receipt-text" aria-hidden="true"></i>My Receipts</a></li>
+            <li><a href="./verify-receipt.html"><i data-lucide="shield-check" aria-hidden="true"></i>Verify Receipt</a></li>
+            <li><a href="./results.html"><i data-lucide="trophy" aria-hidden="true"></i>Results</a></li>
+            <li><a href="./profile.html" aria-current="page"><i data-lucide="user" aria-hidden="true"></i>Profile</a></li>
+          </ul>
+        </nav>
+        <a class="sign-out" href="../index.html"><i data-lucide="log-out" aria-hidden="true"></i>Sign out</a>
+      </aside>
+
+      <div class="main-col">
+        <header class="topbar">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <span aria-current="page">Profile</span>
+          </nav>
+          <p class="account-avatar" aria-label="Signed in as Amara Okafor">AO</p>
+        </header>
+
+        <main class="page page-narrow" aria-labelledby="page-title">
+          <h1 id="page-title">Profile</h1>
+          <p class="page-sub">Your details, as checked against the student register.</p>
+
+          <section class="profile-card" aria-label="Account details">
+            <div class="profile-head">
+              <p class="profile-avatar" aria-hidden="true">AO</p>
+              <div>
+                <h2>Amara Okafor</h2>
+                <span class="pill pill-counted"><i data-lucide="check" aria-hidden="true"></i>Eligible voter</span>
+              </div>
+            </div>
+            <dl class="profile-rows">
+              <div>
+                <dt>School email</dt>
+                <dd id="profile-email">a.okafor@gmail.com</dd>
+              </div>
+              <div>
+                <dt>Registration number</dt>
+                <dd id="profile-regno">BEH/01/29/24</dd>
+              </div>
+              <div>
+                <dt>Votes cast</dt>
+                <dd>2 · <a class="inline-link" href="./my-receipts.html">View receipts</a></dd>
+              </div>
+            </dl>
+            <button class="button button-outline profile-btn" id="password-btn" type="button">Change password</button>
+            <p class="form-note" id="password-note" role="status" hidden></p>
+          </section>
+
+          <a class="button button-outline profile-signout" href="../index.html"><i data-lucide="log-out" aria-hidden="true"></i>Sign out</a>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

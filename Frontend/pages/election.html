@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f8f6">
+    <meta name="description" content="Vote in the Student Council 2026 election on VoteX.">
+    <title>Student Council 2026 — VoteX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../assets/logo/logo.svg">
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/dashboard/dashboard.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script type="module" src="../js/election.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" aria-label="Account navigation">
+        <a class="brand" href="../index.html" aria-label="VoteX home">
+          <span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="../assets/logo/logo.svg" alt=""></span>
+          <span>VoteX</span>
+        </a>
+        <nav aria-label="Primary">
+          <ul class="side-nav">
+            <li><a href="./dashboard.html"><i data-lucide="layout-dashboard" aria-hidden="true"></i>Dashboard</a></li>
+            <li><a href="./election.html" aria-current="page"><i data-lucide="vote" aria-hidden="true"></i>Elections</a></li>
+            <li><a href="./my-receipts.html"><i data-lucide="receipt-text" aria-hidden="true"></i>My Receipts</a></li>
+            <li><a href="./verify-receipt.html"><i data-lucide="shield-check" aria-hidden="true"></i>Verify Receipt</a></li>
+            <li><a href="./results.html"><i data-lucide="trophy" aria-hidden="true"></i>Results</a></li>
+            <li><a href="./profile.html"><i data-lucide="user" aria-hidden="true"></i>Profile</a></li>
+          </ul>
+        </nav>
+        <a class="sign-out" href="../index.html"><i data-lucide="log-out" aria-hidden="true"></i>Sign out</a>
+      </aside>
+
+      <div class="main-col">
+        <header class="topbar">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <a href="./dashboard.html">Dashboard</a>
+            <span aria-hidden="true">/</span>
+            <span aria-current="page">Student Council 2026</span>
+          </nav>
+          <p class="account-avatar" aria-label="Signed in as Amara Okafor">AO</p>
+        </header>
+
+        <div class="content-grid" id="election">
+          <main class="ballot" aria-labelledby="election-title">
+            <div class="election-head">
+              <div>
+                <h1 id="election-title">Student Council Election 2026</h1>
+                <p class="election-sub">3 positions · Pick one candidate or abstain for each</p>
+              </div>
+              <p class="closes-box"><i data-lucide="clock" aria-hidden="true"></i><span><span class="closes-label">Closes in</span><strong id="countdown">05h 42m 10s</strong></span></p>
+            </div>
+
+            <fieldset class="position" id="pos-president">
+              <legend><span>1 of 3 · President</span><span class="pos-badge" data-badge>Not answered</span></legend>
+              <div class="cand-grid">
+                <label class="candidate">
+                  <input type="radio" name="president" value="Amara Okafor">
+                  <span class="cand-top"><span class="avatar" aria-hidden="true">AO</span><span class="radio" aria-hidden="true"></span></span>
+                  <span class="cand-name">Amara Okafor</span>
+                  <span class="cand-tag">Longer library hours and a student feedback portal.</span>
+                  <button class="manifesto-toggle" type="button" aria-expanded="false">Read manifesto</button>
+                  <span class="manifesto" hidden>Amara will extend library hours to 22:00 on weekdays, launch a student feedback portal with monthly published responses, and push for free printing quotas during exam season.</span>
+                </label>
+                <label class="candidate">
+                  <input type="radio" name="president" value="Daniel Mwangi">
+                  <span class="cand-top"><span class="avatar" aria-hidden="true">DM</span><span class="radio" aria-hidden="true"></span></span>
+                  <span class="cand-name">Daniel Mwangi</span>
+                  <span class="cand-tag">Affordable cafeteria meals and more sports funding.</span>
+                  <button class="manifesto-toggle" type="button" aria-expanded="false">Read manifesto</button>
+                  <span class="manifesto" hidden>Daniel will cap cafeteria meal prices, publish a termly sports budget, and fund at least two new inter-school tournaments every year.</span>
+                </label>
+                <label class="candidate">
+                  <input type="radio" name="president" value="Lina Haddad">
+                  <span class="cand-top"><span class="avatar" aria-hidden="true">LH</span><span class="radio" aria-hidden="true"></span></span>
+                  <span class="cand-name">Lina Haddad</span>
+                  <span class="cand-tag">Mental health days and a peer mentoring program.</span>
+                  <button class="manifesto-toggle" type="button" aria-expanded="false">Read manifesto</button>
+                  <span class="manifesto" hidden>Lina will introduce two wellbeing days per term, train 30 peer mentors across faculties, and keep counselling waiting times under one week.</span>
+                </label>
+              </div>
+              <label class="abstain"><input type="radio" name="president" value="Abstain"><span class="radio" aria-hidden="true"></span>Abstain from this position</label>
+            </fieldset>
+
+            <fieldset class="position" id="pos-secretary">
+              <legend><span>2 of 3 · Secretary</span><span class="pos-badge" data-badge>Not answered</span></legend>
+              <div class="cand-grid cand-grid-2">
+                <label class="candidate">
+                  <input type="radio" name="secretary" value="Priya Nair">
+                  <span class="cand-top"><span class="avatar" aria-hidden="true">PN</span><span class="radio" aria-hidden="true"></span></span>
+                  <span class="cand-name">Priya Nair</span>
+                  <span class="cand-tag">Publish every council meeting’s minutes within 48 hours.</span>
+                  <button class="manifesto-toggle" type="button" aria-expanded="false">Read manifesto</button>
+                  <span class="manifesto" hidden>Priya will publish minutes within 48 hours, keep a searchable archive of every decision, and send a monthly plain-language council roundup to all students.</span>
+                </label>
+                <label class="candidate">
+                  <input type="radio" name="secretary" value="Tomas Reyes">
+                  <span class="cand-top"><span class="avatar" aria-hidden="true">TR</span><span class="radio" aria-hidden="true"></span></span>
+                  <span class="cand-name">Tomas Reyes</span>
+                  <span class="cand-tag">A shared calendar for every club and society.</span>
+                  <button class="manifesto-toggle" type="button" aria-expanded="false">Read manifesto</button>
+                  <span class="manifesto" hidden>Tomas will run one shared events calendar, guarantee room-booking replies within 3 days, and protect small clubs’ slots during busy weeks.</span>
+                </label>
+              </div>
+              <label class="abstain"><input type="radio" name="secretary" value="Abstain"><span class="radio" aria-hidden="true"></span>Abstain from this position</label>
+            </fieldset>
+
+            <details class="position" id="pos-treasurer">
+              <summary><span>3 of 3 · Treasurer · 4 candidates</span><span class="pos-badge" data-badge>Not answered</span></summary>
+              <div class="cand-grid">
+                <label class="candidate">
+                  <input type="radio" name="treasurer" value="Grace Banda">
+                  <span class="cand-top"><span class="avatar" aria-hidden="true">GB</span><span class="radio" aria-hidden="true"></span></span>
+                  <span class="cand-name">Grace Banda</span>
+                  <span class="cand-tag">Transparent budgets published every term.</span>
+                  <button class="manifesto-toggle" type="button" aria-expanded="false">Read manifesto</button>
+                  <span class="manifesto" hidden>Grace will publish a line-by-line budget every term, hold open budget office hours, and require two signatories on every expense.</span>
+                </label>
+                <label class="candidate">
+                  <input type="radio" name="treasurer" value="Chikondi Phiri">
+                  <span class="cand-top"><span class="avatar" aria-hidden="true">CP</span><span class="radio" aria-hidden="true"></span></span>
+                  <span class="cand-name">Chikondi Phiri</span>
+                  <span class="cand-tag">Fair funding for every club and team.</span>
+                  <button class="manifesto-toggle" type="button" aria-expanded="false">Read manifesto</button>
+                  <span class="manifesto" hidden>Chikondi will set a clear funding formula, reserve 20% of the budget for new and small clubs, and publish every grant decision.</span>
+                </label>
+                <label class="candidate">
+                  <input type="radio" name="treasurer" value="Yamikani Zulu">
+                  <span class="cand-top"><span class="avatar" aria-hidden="true">YZ</span><span class="radio" aria-hidden="true"></span></span>
+                  <span class="cand-name">Yamikani Zulu</span>
+                  <span class="cand-tag">Cheaper event tickets through sponsorships.</span>
+                  <button class="manifesto-toggle" type="button" aria-expanded="false">Read manifesto</button>
+                  <span class="manifesto" hidden>Yamikani will bring in local sponsors to cut event ticket prices, keep a hardship ticket pool, and report sponsorship income openly.</span>
+                </label>
+                <label class="candidate">
+                  <input type="radio" name="treasurer" value="Tionge Moyo">
+                  <span class="cand-top"><span class="avatar" aria-hidden="true">TM</span><span class="radio" aria-hidden="true"></span></span>
+                  <span class="cand-name">Tionge Moyo</span>
+                  <span class="cand-tag">A student emergency fund for those in need.</span>
+                  <button class="manifesto-toggle" type="button" aria-expanded="false">Read manifesto</button>
+                  <span class="manifesto" hidden>Tionge will create a confidential emergency fund, decide applications within 72 hours, and publish anonymised spending totals each term.</span>
+                </label>
+              </div>
+              <label class="abstain"><input type="radio" name="treasurer" value="Abstain"><span class="radio" aria-hidden="true"></span>Abstain from this position</label>
+            </details>
+          </main>
+
+          <aside class="ballot-panel" aria-labelledby="ballot-title" aria-live="polite">
+            <h2 id="ballot-title">Your ballot</h2>
+            <p class="ballot-progress" id="progress-text">0 of 3 positions answered</p>
+            <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
+            <ul class="ballot-rows">
+              <li><span>President</span><span id="pick-president"><a href="#pos-president">Choose</a></span></li>
+              <li><span>Secretary</span><span id="pick-secretary"><a href="#pos-secretary">Choose</a></span></li>
+              <li><span>Treasurer</span><span id="pick-treasurer"><a href="#pos-treasurer">Choose</a></span></li>
+            </ul>
+            <button class="button button-primary ballot-review" id="review-btn" type="button" disabled>Review and confirm</button>
+            <p class="form-note" id="review-note" role="status" hidden></p>
+            <p class="ballot-hint">Answer every position, either by choosing a candidate or by abstaining, to continue. You can change your picks until you confirm.</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

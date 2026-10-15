@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f8f6">
+    <meta name="description" content="Your VoteX dashboard — open elections, votes cast and receipts.">
+    <title>Dashboard — VoteX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="../assets/logo/logo.svg">
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/dashboard/dashboard.css">
+    <link rel="stylesheet" href="../css/dashboard/receipts.css">
+    <link rel="stylesheet" href="../css/dashboard/overview.css">
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script type="module" src="../js/dashboard.js"></script>
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar" aria-label="Account navigation">
+        <a class="brand" href="../index.html" aria-label="VoteX home">
+          <span class="brand-mark" aria-hidden="true"><img class="brand-logo" src="../assets/logo/logo.svg" alt=""></span>
+          <span>VoteX</span>
+        </a>
+        <nav aria-label="Primary">
+          <ul class="side-nav">
+            <li><a href="./dashboard.html" aria-current="page"><i data-lucide="layout-dashboard" aria-hidden="true"></i>Dashboard</a></li>
+            <li><a href="./election.html"><i data-lucide="vote" aria-hidden="true"></i>Elections</a></li>
+            <li><a href="./my-receipts.html"><i data-lucide="receipt-text" aria-hidden="true"></i>My Receipts</a></li>
+            <li><a href="./verify-receipt.html"><i data-lucide="shield-check" aria-hidden="true"></i>Verify Receipt</a></li>
+            <li><a href="./results.html"><i data-lucide="trophy" aria-hidden="true"></i>Results</a></li>
+            <li><a href="./profile.html"><i data-lucide="user" aria-hidden="true"></i>Profile</a></li>
+          </ul>
+        </nav>
+        <a class="sign-out" href="../index.html"><i data-lucide="log-out" aria-hidden="true"></i>Sign out</a>
+      </aside>
+
+      <div class="main-col">
+        <header class="topbar">
+          <nav class="crumbs" aria-label="Breadcrumb">
+            <span aria-current="page">Dashboard</span>
+          </nav>
+          <p class="account-avatar" aria-label="Signed in as Amara Okafor">AO</p>
+        </header>
+
+        <main class="page" aria-labelledby="page-title">
+          <h1 id="page-title">Welcome back, Amara</h1>
+          <p class="page-sub">Here’s what’s happening with your elections.</p>
+
+          <ul class="stats-grid" aria-label="Voting summary">
+            <li class="stat-card"><span class="stat-label">Open elections</span><span class="stat-value">1</span></li>
+            <li class="stat-card"><span class="stat-label">Votes cast</span><span class="stat-value">2</span></li>
+            <li class="stat-card"><span class="stat-label">Upcoming</span><span class="stat-value">1</span></li>
+          </ul>
+
+          <section aria-labelledby="elections-title">
+            <h2 class="section-title" id="elections-title">Elections</h2>
+            <ul class="election-cards">
+              <li class="election-card">
+                <div>
+                  <h3>Student Council 2026</h3>
+                  <p class="receipt-meta">3 positions · Closes today, 18:00</p>
+                </div>
+                <div class="election-side">
+                  <span class="pill pill-counted"><i data-lucide="check" aria-hidden="true"></i>Open</span>
+                  <a class="button button-primary button-small" href="./election.html">Vote now</a>
+                </div>
+              </li>
+              <li class="election-card">
+                <div>
+                  <h3>Faculty Rep — Science</h3>
+                  <p class="receipt-meta">Opens 12 May</p>
+                </div>
+                <div class="election-side">
+                  <span class="pill pill-recorded"><i data-lucide="clock" aria-hidden="true"></i>Upcoming</span>
+                </div>
+              </li>
+              <li class="election-card">
+                <div>
+                  <h3>Sports Captain</h3>
+                  <p class="receipt-meta">Closed 28 Apr · Winner: Tiwonge Kachingwe</p>
+                </div>
+                <div class="election-side">
+                  <span class="pill pill-closed">Closed</span>
+                  <a class="button button-outline button-small" href="./results.html">View results</a>
+                </div>
+              </li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="recent-title">
+            <div class="section-head">
+              <h2 class="section-title" id="recent-title">Recent receipts</h2>
+              <a class="inline-link" href="./my-receipts.html">View all →</a>
+            </div>
+            <ul class="mini-receipts">
+              <li>
+                <div>
+                  <p class="mini-code">VC · 2M8P · 44AB · 9QWE</p>
+                  <p class="receipt-meta">Student Council 2026 · today</p>
+                </div>
+                <a class="inline-link" href="./verify-receipt.html" data-code="VC · 2M8P · 44AB · 9QWE">Verify →</a>
+              </li>
+              <li>
+                <div>
+                  <p class="mini-code">VC · 7QK4 · 93X2 · 2H8P</p>
+                  <p class="receipt-meta">Sports Captain · 28 Apr</p>
+                </div>
+                <a class="inline-link" href="./verify-receipt.html" data-code="VC · 7QK4 · 93X2 · 2H8P">Verify →</a>
+              </li>
+            </ul>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
