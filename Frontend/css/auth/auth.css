@@ -363,3 +363,71 @@
   cursor: default;
   text-decoration: none;
 }
+
+/* ---- Done screen ---- */
+.auth-done {
+  text-align: center;
+}
+
+.auth-done .stepper {
+  text-align: left;
+}
+
+.success-icon {
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+}
+
+.success-icon span {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ok-bg);
+  color: var(--ok);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.auth-done .auth-subtitle {
+  margin-bottom: 16px;
+}
+
+.account-recap {
+  text-align: left;
+  background: var(--soft-white);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-control);
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.account-recap dt {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--dove);
+}
+
+.account-recap dd {
+  font-size: 13.5px;
+  color: var(--ink-strong);
+  font-weight: 500;
+}
+
+.auth-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+}
+
+.auth-actions .auth-submit {
+  margin-top: 0;
+}

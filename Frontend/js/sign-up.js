@@ -149,6 +149,7 @@ form?.addEventListener("submit", (event) => {
     }
     try {
       window.sessionStorage.setItem("votex-email", email?.value.trim() ?? "");
+      window.sessionStorage.setItem("votex-regno", regno?.value.trim() ?? "");
     } catch {
       // Non-essential convenience only; the flow works without it.
     }

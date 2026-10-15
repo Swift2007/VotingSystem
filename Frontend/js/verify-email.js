@@ -108,6 +108,7 @@ form?.addEventListener("submit", (event) => {
   if (!form || !submitButton || submitButton.disabled) return;
 
   // Honest pending state. Never claim verification before the API confirms.
+  // On real API success: window.location.assign("./sign-up-done.html").
   submitButton.disabled = true;
   const originalLabel = submitButton.textContent;
   submitButton.textContent = "Verifying…";
