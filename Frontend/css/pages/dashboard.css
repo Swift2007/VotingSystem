@@ -1,4 +1,4 @@
-/* Dashboard overview: stats, election cards, recent receipts. */
+/* Dashboard overview page: stats, election cards, recent receipts. */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -27,12 +27,6 @@
   color: var(--ink-strong);
 }
 
-.section-title {
-  font-size: 15px;
-  color: var(--ink-strong);
-  margin-bottom: 12px;
-}
-
 .section-head {
   display: flex;
   align-items: baseline;
@@ -43,10 +37,6 @@
 
 .section-head .section-title {
   margin-bottom: 0;
-}
-
-.page section {
-  margin-bottom: 24px;
 }
 
 .election-cards {
@@ -76,11 +66,6 @@
   align-items: center;
   gap: 10px;
   flex: 0 0 auto;
-}
-
-.pill-closed {
-  background: var(--line-soft);
-  color: var(--dove);
 }
 
 .mini-receipts {

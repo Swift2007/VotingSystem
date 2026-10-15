@@ -1,0 +1,48 @@
+/* Verify email (OTP step): code boxes, resend row. */
+.otp-field {
+  border: 0;
+  margin-bottom: 6px;
+}
+
+.otp-field legend {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ink-strong);
+  margin-bottom: 8px;
+  padding: 0;
+}
+
+.otp-group {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+}
+
+.otp-input {
+  width: 100%;
+  min-height: 48px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink-strong);
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-control);
+}
+
+.otp-input:focus {
+  outline: none;
+  border-color: var(--sky-deep);
+  box-shadow: 0 0 0 3px rgb(47 120 176 / 18%);
+}
+
+.otp-input[aria-invalid="true"] {
+  border-color: var(--warn);
+}
+
+.resend-row {
+  margin-top: 14px;
+  text-align: center;
+  font-size: 12.5px;
+  color: var(--dove);
+}

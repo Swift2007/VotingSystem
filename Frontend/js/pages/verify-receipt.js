@@ -1,4 +1,4 @@
-import { refreshIcons } from "./components/icons.js";
+import { refreshIcons } from "../shared/icons.js";
 
 // Verify Receipt: format check + demo lookup. The real check runs
 // server-side against the blockchain; this page only demos the states.

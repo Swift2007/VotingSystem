@@ -1,4 +1,4 @@
-import { refreshIcons } from "./components/icons.js";
+import { refreshIcons } from "../shared/icons.js";
 
 // My Receipts: copy buttons + hand the code to the verify page
 // via sessionStorage (never in the URL).

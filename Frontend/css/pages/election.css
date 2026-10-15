@@ -1,126 +1,4 @@
-/* Dashboard / ballot page. Sidebar + ballot + summary panel. Tokens from tokens.css. */
-.app {
-  display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  min-height: 100vh;
-}
-
-.sidebar {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  background: var(--card);
-  border-right: 1px solid var(--line-soft);
-  padding: 18px 14px;
-}
-
-.sidebar .brand {
-  padding: 0 8px;
-}
-
-.side-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.side-nav a {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 10px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--ink);
-}
-
-.side-nav a:hover {
-  background: var(--soft-white);
-}
-
-.side-nav a[aria-current="page"] {
-  background: var(--sky-soft-bg);
-  color: var(--ink-strong);
-  font-weight: 600;
-}
-
-.side-nav .lucide,
-.sign-out .lucide {
-  width: 15px;
-  height: 15px;
-  flex: 0 0 auto;
-}
-
-.sign-out {
-  margin-top: auto;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 10px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--dove);
-}
-
-.sign-out:hover {
-  background: var(--soft-white);
-  color: var(--ink-strong);
-}
-
-.main-col {
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-.topbar {
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  padding: 14px 28px;
-  background: rgb(248 248 246 / 88%);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line-soft);
-}
-
-.crumbs {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  color: var(--dove);
-}
-
-.crumbs a:hover {
-  color: var(--ink-strong);
-}
-
-.crumbs [aria-current="page"] {
-  color: var(--ink-strong);
-  font-weight: 600;
-}
-
-.account-avatar {
-  width: 32px;
-  height: 32px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--line-soft);
-  color: var(--ink);
-  font-size: 12px;
-  font-weight: 700;
-}
-
+/* Election (ballot) page: countdown, positions, candidates, ballot panel. */
 .content-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 300px;
@@ -322,7 +200,8 @@ details.position[open] summary {
   border-color: var(--sky-deep);
 }
 
-.candidate.is-selected .radio::after {
+.candidate.is-selected .radio::after,
+.abstain.is-selected .radio::after {
   content: "";
   width: 8px;
   height: 8px;
@@ -402,14 +281,6 @@ details.position[open] summary {
 
 .abstain.is-selected .radio {
   border-color: var(--sky-deep);
-}
-
-.abstain.is-selected .radio::after {
-  content: "";
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--sky-deep);
 }
 
 .ballot-panel {
@@ -521,37 +392,6 @@ details.position[open] summary {
 }
 
 @media (max-width: 760px) {
-  .app {
-    grid-template-columns: 1fr;
-  }
-
-  .sidebar {
-    position: static;
-    height: auto;
-    flex-direction: row;
-    align-items: center;
-    gap: 12px;
-    overflow-x: auto;
-    padding: 12px;
-  }
-
-  .sidebar nav {
-    flex: 1;
-  }
-
-  .side-nav {
-    flex-direction: row;
-  }
-
-  .side-nav a {
-    white-space: nowrap;
-  }
-
-  .sign-out {
-    margin-top: 0;
-    white-space: nowrap;
-  }
-
   .content-grid {
     padding: 16px 16px 40px;
   }

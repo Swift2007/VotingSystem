@@ -1,4 +1,4 @@
-import { refreshIcons } from "./components/icons.js";
+import { refreshIcons } from "../shared/icons.js";
 
 // Dashboard overview: icons + hand receipt codes to the verify page
 // via sessionStorage (never in the URL).

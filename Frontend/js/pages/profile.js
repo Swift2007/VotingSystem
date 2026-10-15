@@ -1,4 +1,4 @@
-import { refreshIcons } from "./components/icons.js";
+import { refreshIcons } from "../shared/icons.js";
 
 // Profile: icons + details from sign-up when available (demo defaults otherwise).
 refreshIcons();
