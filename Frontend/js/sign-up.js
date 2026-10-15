@@ -17,8 +17,8 @@ const ruleItems = {
   symbol: document.querySelector('[data-rule="symbol"]'),
 };
 
-const EMAIL_SUFFIX = "@school.edu";
-const REGNO_PATTERN = /^SC\/\d{4}\/\d{4}$/i;
+const EMAIL_SUFFIX = "@gmail.com";
+const REGNO_PATTERN = /^BEH\/\d{2}\/\d{2}\/\d{2}$/i;
 
 function setInvalid(inputEl, hintEl, message) {
   if (!inputEl) return;
@@ -109,7 +109,7 @@ form?.addEventListener("submit", (event) => {
   }
 
   if (!REGNO_PATTERN.test(regnoValue)) {
-    setInvalid(regno, regnoHint, "Use the format SC/2023/0412.");
+    setInvalid(regno, regnoHint, "Use the format BEH/01/29/24.");
     firstBad ??= regno;
   } else {
     setInvalid(regno, regnoHint, "");
@@ -145,7 +145,12 @@ form?.addEventListener("submit", (event) => {
     submitButton.textContent = originalLabel;
     if (formNote) {
       formNote.hidden = false;
-      formNote.textContent = "Details look good. Email verification is next (not wired to the backend yet).";
+      formNote.innerHTML = `Details look good. <a class="inline-link" href="./verify-email.html">Continue to email verification →</a>`;
+    }
+    try {
+      window.sessionStorage.setItem("votex-email", email?.value.trim() ?? "");
+    } catch {
+      // Non-essential convenience only; the flow works without it.
     }
   }, 800);
 });
