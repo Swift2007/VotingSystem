@@ -1,6 +1,7 @@
+from datetime import datetime
 from typing import Literal
 
-from pydantic import BaseModel, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 
 
 class AuthCredentials(BaseModel):
@@ -14,7 +15,7 @@ class AuthCredentials(BaseModel):
 
 
 class RegisterRequest(AuthCredentials):
-    pass
+    full_name: str = Field(default="", max_length=120)
 
 
 class LoginRequest(AuthCredentials):
@@ -22,10 +23,20 @@ class LoginRequest(AuthCredentials):
 
 
 class UserResponse(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
     student_id: str
+    full_name: str
+    role: str
+
+
+class RoleUpdate(BaseModel):
+    role: Literal["student", "election_admin", "system_admin", "auditor"]
 
 
 class AuthResponse(BaseModel):
     access_token: str
     token_type: Literal["bearer"] = "bearer"
+    expires_at: datetime
     user: UserResponse

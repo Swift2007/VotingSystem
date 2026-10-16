@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Secrets and local config
+.env
+
+# Runtime data: SQLite DB, per-node chain files, ballot keys (NEVER commit keys)
+backend/data/
+*.db
+*.db-wal
+*.db-shm
