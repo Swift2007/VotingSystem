@@ -1,4 +1,8 @@
 import { refreshIcons } from "../shared/icons.js";
+import { requireAuth } from "../shared/session.js";
+
+// Signed-out visitors bounce to sign-in; sign-out links clear the token.
+requireAuth();
 
 // Results: icons + bar widths from vote data (demo totals until the API exists).
 refreshIcons();

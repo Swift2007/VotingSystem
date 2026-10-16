@@ -1,4 +1,8 @@
 import { refreshIcons } from "../shared/icons.js";
+import { requireAuth } from "../shared/session.js";
+
+// Signed-out visitors bounce to sign-in; sign-out links clear the token.
+requireAuth();
 
 // Dashboard overview: icons + hand receipt codes to the verify page
 // via sessionStorage (never in the URL).

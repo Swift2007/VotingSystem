@@ -1,4 +1,8 @@
 import { refreshIcons } from "../shared/icons.js";
+import { requireAuth } from "../shared/session.js";
+
+// Signed-out visitors bounce to sign-in; sign-out links clear the token.
+requireAuth();
 
 // Ballot page: countdown, card selection, live ballot summary.
 // Picks stay in memory only — never stored — and the backend enforces

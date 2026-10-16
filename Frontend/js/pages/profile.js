@@ -1,4 +1,8 @@
 import { refreshIcons } from "../shared/icons.js";
+import { requireAuth } from "../shared/session.js";
+
+// Signed-out visitors bounce to sign-in; sign-out links clear the token.
+requireAuth();
 
 // Profile: icons + details from sign-up when available (demo defaults otherwise).
 refreshIcons();

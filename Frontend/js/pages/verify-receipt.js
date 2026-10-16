@@ -1,4 +1,8 @@
 import { refreshIcons } from "../shared/icons.js";
+import { requireAuth } from "../shared/session.js";
+
+// Signed-out visitors bounce to sign-in; sign-out links clear the token.
+requireAuth();
 
 // Verify Receipt: format check + demo lookup. The real check runs
 // server-side against the blockchain; this page only demos the states.
