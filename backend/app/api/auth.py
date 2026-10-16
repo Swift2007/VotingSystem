@@ -1,64 +1,39 @@
+"""/auth: register, login, logout, current user."""
 from typing import Annotated
 
-from fastapi import APIRouter, Depends, HTTPException, status
-from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
+from fastapi import APIRouter, Depends, Request, status
+from fastapi.security import HTTPAuthorizationCredentials
 
+from app.core.deps import AppSettings, CurrentUser, DbSession, bearer_scheme
 from app.schemas.auth import AuthResponse, LoginRequest, RegisterRequest, UserResponse
-from app.services.auth import DuplicateStudentIDError, auth_store
+from app.services import auth as auth_service
 
 router = APIRouter(prefix="/auth", tags=["auth"])
-bearer_scheme = HTTPBearer(auto_error=False)
 
 
 @router.post("/register", response_model=AuthResponse, status_code=status.HTTP_201_CREATED)
-def register(payload: RegisterRequest) -> AuthResponse:
-    try:
-        session = auth_store.register(payload.student_id, payload.password)
-    except DuplicateStudentIDError as error:
-        raise HTTPException(
-            status_code=status.HTTP_409_CONFLICT,
-            detail="Student ID is already registered",
-        ) from error
-
-    return AuthResponse(
-        access_token=session.access_token,
-        user=UserResponse(student_id=session.student_id),
-    )
+def register(payload: RegisterRequest, db: DbSession, settings: AppSettings) -> AuthResponse:
+    """Create a *student* account and sign in."""
+    user, token, expires_at = auth_service.register(db, settings, payload.student_id, payload.password, payload.full_name)
+    return AuthResponse(access_token=token, expires_at=expires_at, user=UserResponse.model_validate(user))
 
 
 @router.post("/login", response_model=AuthResponse)
-def login(payload: LoginRequest) -> AuthResponse:
-    session = auth_store.login(payload.student_id, payload.password)
-    if session is None:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid student ID or password",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
+def login(payload: LoginRequest, request: Request, db: DbSession, settings: AppSettings) -> AuthResponse:
+    request.app.state.limiter.check(request, "login")
+    user, token, expires_at = auth_service.login(db, settings, payload.student_id, payload.password)
+    return AuthResponse(access_token=token, expires_at=expires_at, user=UserResponse.model_validate(user))
 
-    return AuthResponse(
-        access_token=session.access_token,
-        user=UserResponse(student_id=session.student_id),
-    )
+
+@router.post("/logout", status_code=status.HTTP_204_NO_CONTENT)
+def logout(
+    user: CurrentUser,
+    db: DbSession,
+    credentials: Annotated[HTTPAuthorizationCredentials | None, Depends(bearer_scheme)],
+) -> None:
+    auth_service.logout(db, credentials.credentials)
 
 
 @router.get("/me", response_model=UserResponse)
-def get_current_user(
-    credentials: Annotated[HTTPAuthorizationCredentials | None, Depends(bearer_scheme)],
-) -> UserResponse:
-    if credentials is None or credentials.scheme.lower() != "bearer":
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid or missing bearer token",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-
-    student_id = auth_store.get_student_id_for_token(credentials.credentials)
-    if student_id is None:
-        raise HTTPException(
-            status_code=status.HTTP_401_UNAUTHORIZED,
-            detail="Invalid or expired bearer token",
-            headers={"WWW-Authenticate": "Bearer"},
-        )
-
-    return UserResponse(student_id=student_id)
+def get_current_user(user: CurrentUser) -> UserResponse:
+    return UserResponse.model_validate(user)
