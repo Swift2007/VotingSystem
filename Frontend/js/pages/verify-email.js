@@ -1,5 +1,8 @@
-// Email OTP verification (step 2). UI-only: input handling + honest states.
-// The real code check happens server-side. No codes or passwords are logged.
+// Email OTP verification (step 2). Input handling + honest pending states.
+// FUTURE BACKEND: replace the demo setTimeout in the submit handler with
+// POST /auth/verify-email { code } — on 200 go to sign-up-done.html,
+// on 401/422 show errorBox + mark inputs invalid (same pattern as below).
+// No codes or passwords are logged here.
 const form = document.querySelector("#verify-form");
 const inputs = [...document.querySelectorAll(".otp-input")];
 const submitButton = form?.querySelector('[type="submit"]');
@@ -109,7 +112,8 @@ form?.addEventListener("submit", (event) => {
   if (!form || !submitButton || submitButton.disabled) return;
 
   // Honest pending state. Never claim verification before the API confirms.
-  // On real API success: window.location.assign("./sign-up-done.html").
+  // Demo stand-in until POST /auth/verify-email exists: always shows the
+  // error state. Real success: window.location.assign("./sign-up-done.html").
   submitButton.disabled = true;
   const originalLabel = submitButton.textContent;
   submitButton.textContent = "Verifying…";

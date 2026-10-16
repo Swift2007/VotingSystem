@@ -1,12 +1,14 @@
 import { refreshIcons } from "../shared/icons.js";
 import { requireAuth } from "../shared/session.js";
+import { submitBallot } from "../../services/ballot.service.js";
 
 // Signed-out visitors bounce to sign-in; sign-out links clear the token.
 requireAuth();
 
-// Ballot page: countdown, card selection, live ballot summary.
-// Picks stay in memory only — never stored — and the backend enforces
-// eligibility, one-vote and the election window.
+// Election page for the open ballot. Candidates stay hardcoded until
+// GET /elections/{id} exists; only the submit below talks to the backend
+// (POST /ballots). Picks stay in memory only — never stored — and the
+// backend enforces eligibility, one-vote and the election window.
 refreshIcons();
 window.addEventListener("load", refreshIcons, { once: true });
 
@@ -61,6 +63,17 @@ document.querySelectorAll(".manifesto-toggle").forEach((button) => {
 const POSITIONS = ["president", "secretary", "treasurer"];
 const picks = { president: null, secretary: null, treasurer: null };
 
+// Ballot identity matches election.html ("Student Council Election 2026").
+// Once GET /elections exists, derive this from the URL (?id=…) instead.
+const ELECTION_ID = "student-council-2026";
+
+// Two-step confirm: first click arms ("Confirm ballot"), second submits.
+// Any pick change disarms back to "Review and confirm".
+const REVIEW_LABEL = "Review and confirm";
+const CONFIRM_LABEL = "Confirm ballot";
+let reviewArmed = false;
+let submitted = false;
+
 const progressText = document.querySelector("#progress-text");
 const progressBar = document.querySelector("#progress-bar");
 const reviewButton = document.querySelector("#review-btn");
@@ -101,11 +114,18 @@ function refreshSummary() {
   if (reviewButton) reviewButton.disabled = answered !== POSITIONS.length;
 }
 
+/** Reset the confirm step whenever picks change (keeps the action honest). */
+function disarmReview() {
+  reviewArmed = false;
+  if (reviewButton && !submitted) reviewButton.textContent = REVIEW_LABEL;
+}
+
 document.querySelectorAll('.position input[type="radio"]').forEach((input) => {
   input.addEventListener("change", () => {
     picks[input.name] = input.value;
     refreshPosition(input.name);
     refreshSummary();
+    disarmReview();
     if (reviewNote) {
       reviewNote.hidden = true;
       reviewNote.textContent = "";
@@ -113,14 +133,57 @@ document.querySelectorAll('.position input[type="radio"]').forEach((input) => {
   });
 });
 
-reviewButton?.addEventListener("click", () => {
-  if (reviewButton.disabled) return;
-  // Review-and-confirm screen is the next build; never claim a vote
-  // is recorded before the API confirms it.
-  if (reviewNote) {
+/** Second click: POST the ballot once (Idempotency-Key makes retries safe). */
+async function confirmBallot() {
+  if (!reviewButton || !reviewNote || submitted) return;
+  reviewButton.disabled = true;
+  reviewButton.textContent = "Submitting…";
+  try {
+    const data = await submitBallot(ELECTION_ID, { ...picks });
+    submitted = true;
+    // Receipt shape depends on the future backend; accept common variants.
+    const receipt = data?.receipt_code ?? data?.receipt ?? data?.code ?? "";
     reviewNote.hidden = false;
-    reviewNote.textContent = "Ballot complete. The review-and-confirm step is next (not built yet) — nothing has been submitted.";
+    reviewNote.textContent = receipt
+      ? `Vote recorded. Your receipt: ${receipt} — keep it to verify counting.`
+      : "Vote recorded. Your receipt will appear under My Receipts.";
+    reviewButton.textContent = "Ballot submitted";
+  } catch (error) {
+    if (error?.status === 401) {
+      // Stale token: session guard will bounce to sign-in on next boot.
+      window.location.href = "./sign-in.html";
+      return;
+    }
+    reviewArmed = false;
+    reviewNote.hidden = false;
+    if (error?.status === 409) {
+      reviewNote.textContent = "This ballot was already recorded — each student votes once.";
+    } else if (error?.status === 422) {
+      reviewNote.textContent = "Ballot rejected. Re-check your picks and try again.";
+    } else if (error?.status === 0) {
+      reviewNote.textContent = "Cannot reach the server. Nothing was submitted — try again.";
+    } else {
+      reviewNote.textContent = error?.message || "Submit failed. Nothing was submitted — try again.";
+    }
+    refreshSummary(); // re-enables the button when the ballot is complete
+    reviewButton.textContent = REVIEW_LABEL;
   }
+}
+
+reviewButton?.addEventListener("click", () => {
+  if (!reviewButton || reviewButton.disabled || submitted) return;
+  if (!reviewArmed) {
+    // First click: show the exact picks for review, arm the confirm step.
+    reviewArmed = true;
+    if (reviewNote) {
+      const summary = POSITIONS.map((name) => `${name}: ${picks[name]}`).join(" · ");
+      reviewNote.hidden = false;
+      reviewNote.textContent = `Review — ${summary}. Click "${CONFIRM_LABEL}" to cast it (cannot be changed).`;
+    }
+    reviewButton.textContent = CONFIRM_LABEL;
+    return;
+  }
+  void confirmBallot();
 });
 
 POSITIONS.forEach(refreshPosition);
